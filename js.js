@@ -12,6 +12,10 @@ window.addEventListener("load",()=>{
     canvas.width = window.innerWidth;
     canvas.height =innerHeight;
 })
+window.addEventListener("resize",()=>{
+    canvas.width = window.innerWidth;
+    canvas.height =innerHeight;
+})
 
 
 window.addEventListener("mousemove",follow)
@@ -30,6 +34,9 @@ canvas.addEventListener("mousemove",draw)
 canvas.addEventListener("mouseup",stoppaint)
 window.addEventListener("keydown",blacks)
 window.addEventListener("wheel",fun)
+window.addEventListener("touchstart",startpaint)
+canvas.addEventListener("touchmove",draw)
+window.addEventListener("touchend",stoppaint)
 
 
 let hide = false;
@@ -60,12 +67,14 @@ function startpaint(e){
 
 
 function draw(e){
+    x = e.clientX
+    y = e.clientY
     if(painting){
-    
     c.lineCap = "round"
    
-    c.lineTo(e.clientX,e.clientY)
+    c.lineTo(x,y)
     c.stroke()
+  
 }
 }
 
