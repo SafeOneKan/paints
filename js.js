@@ -5,7 +5,8 @@ let painting;
 const c = canvas.getContext("2d")
 
 alert("u can change color by typing the first leter of the showen colors");
-alert("u can change the pen width with the mouse wheel")
+alert("u can change the pen width with the mouse wheel");
+alert("if u hit 'q' it will reset the drawing!")
 
 window.addEventListener("load",()=>{
     canvas.width = window.innerWidth;
@@ -95,10 +96,13 @@ function blacks(z){
     else if (z.key == "n"){
         c.strokeStyle = "black"
     }
+    else if(z.key == "q"){
+        c.clearRect(0,0,canvas.width,canvas.height)
+    }
    
 }
 function fun(e){
-    console.log(e)
+    
     
     if(parseInt(e.deltaY) === -125){
         c.lineWidth += 10;
